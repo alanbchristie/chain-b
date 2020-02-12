@@ -5,6 +5,7 @@ services:
 - docker
 
 stages:
+- name: test
 - name: trigger
 
 # One-time installation actions.
@@ -13,6 +14,13 @@ install:
 - >-
     curl
     --location
-    --output scripts/trigger-travis.sh
     --retry 3
     https://raw.githubusercontent.com/plume-lib/trigger-travis/master/trigger-travis.sh
+    --output trigger-travis.sh
+
+jobs:
+  include:
+
+  - stage: test
+    script:
+    - ls
