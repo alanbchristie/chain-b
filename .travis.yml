@@ -15,7 +15,7 @@ install:
     curl
     --location
     --retry 3
-    https://raw.githubusercontent.com/plume-lib/trigger-travis/master/trigger-travis.sh
+    https://raw.githubusercontent.com/informaticsmatters/trigger-travis/master/trigger-travis.sh
     --output trigger-travis.sh
 
 jobs:
