@@ -1,0 +1,18 @@
+---
+os: linux
+
+services:
+- docker
+
+stages:
+- name: trigger
+
+# One-time installation actions.
+# Here we download our trigger-travis script.
+install:
+- >-
+    curl
+    --location
+    --output scripts/trigger-travis.sh
+    --retry 3
+    https://raw.githubusercontent.com/plume-lib/trigger-travis/master/trigger-travis.sh
