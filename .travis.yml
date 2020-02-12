@@ -15,13 +15,20 @@ install:
     curl
     --location
     --retry 3
-    https://raw.githubusercontent.com/informaticsmatters/trigger-travis/master/trigger-travis.sh
-    --output trigger-travis.sh
+    https://raw.githubusercontent.com/informaticsmatters/trigger-travis/master/requirements.txt
+    --output trigger-travis-requirements.txt
+- >-
+    curl
+    --location
+    --retry 3
+    https://raw.githubusercontent.com/informaticsmatters/trigger-travis/master/trigger-travis.py
+    --output trigger-travis.py
+- pip install -r trigger-travis-requirements.txt
+- chmod +x trigger-travis.py
 
 jobs:
   include:
 
   - stage: test
     script:
-    - ls
     - echo "UPSTREAM_VARIABLE=${UPSTREAM_VARIABLE}"
